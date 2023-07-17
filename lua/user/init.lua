@@ -80,6 +80,9 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    require("notify").setup({
+      background_colour = "#000000",
+    })
   end,
 
   -- This function run alpha-nvim when there is no more buffer
