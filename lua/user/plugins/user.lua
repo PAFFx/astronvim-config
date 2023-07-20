@@ -44,7 +44,7 @@ return {
       require("presence").setup {
         autoupdate = true,
         main_image = "file",
-        neovim_image_text = "Neovim > Other Editor!",
+        neovim_image_text = "Neovim > EMACS!",
         editing_text = "chilling in %s",
         file_assets = {
           go = {
