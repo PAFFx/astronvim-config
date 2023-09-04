@@ -74,7 +74,7 @@ return {
     "vinnymeller/swagger-preview.nvim",
     lazy = false,
     keys = {
-      { "<leader>s",  "<cmd><cr>",                    desc = "Swagger" },
+      { "<leader>s",  "<cmd><cr>",                    desc = "Preview" },
       { "<leader>ss", "<cmd>SwaggerPreview<cr>" },
       { "<leader>st", "<cmd>SwaggerPreviewToggle<cr>" },
       { "<leader>se", "<cmd>SwaggerPreviewStop<cr>" },
@@ -88,5 +88,25 @@ return {
       })
     end
   },
+
+  -- Glow Markdown Preview
+  {
+    "ellisonleao/glow.nvim",
+    config = function()
+      require("glow").setup({
+        border = "shadow", -- floating window border config
+        style = "dark",    -- filled automatically with your current editor background, you can override using glow json style
+        pager = false,
+        width = 90,
+        height = 100,
+        width_ratio = 0.8, -- maximum width of the Glow window compared to the nvim window size (overrides `width`)
+        height_ratio = 0.7,
+      })
+    end,
+    cmd = "Glow",
+    keys = {
+      { "<leader>sm", "<cmd>Glow<cr>", desc = "Markdown glow" }
+    }
+  }
 
 }
