@@ -6,7 +6,7 @@ return {
 
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.pack.go" },
-  { import = "astrocommunity.pack.dart" },
-  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" }
+  -- { import = "astrocommunity.pack.go" },
+  -- { import = "astrocommunity.pack.dart" },
+  -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" }
 }
