@@ -2,6 +2,12 @@
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+local gdscript_cmd = (function()
+  if vim.fn.executable "nc" == 1 then return { "nc", "127.0.0.1", "6005" } end
+  if vim.fn.executable "ncat" == 1 then return { "ncat", "127.0.0.1", "6005" } end
+  if vim.fn.executable "netcat" == 1 then return { "netcat", "127.0.0.1", "6005" } end
+  return { "nc", "127.0.0.1", "6005" }
+end)()
 
 ---@type LazySpec
 return {
@@ -37,12 +43,18 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "gdscript",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      gdscript = {
+        cmd = gdscript_cmd,
+        filetypes = { "gd", "gdscript", "gdscript3" },
+        root_dir = function(fname) return require("lspconfig.util").root_pattern("project.godot", ".git")(fname) end,
+        single_file_support = false,
+      },
     },
     -- customize how language servers are attached
     handlers = {
