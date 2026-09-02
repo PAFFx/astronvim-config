@@ -1,15 +1,16 @@
--- Customize Treesitter
+-- Customize Treesitter (AstroNvim v6: parsers are configured through AstroCore)
 
 ---@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
+  "AstroNvim/astrocore",
+  ---@type AstroCoreOpts
   opts = {
-    ensure_installed = {
-      "gdscript",
-      "gdshader",
-      "lua",
-      "vim",
-      -- add more arguments for adding more treesitter parsers
+    treesitter = {
+      ensure_installed = {
+        "gdscript",
+        "gdshader",
+        -- add more arguments for adding more treesitter parsers
+      },
     },
   },
 }
